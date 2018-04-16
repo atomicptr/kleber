@@ -73,11 +73,11 @@
             <div class="column is-two-thirds centerbox">
                 <pre>
                     <code class="html">
-&lt;button class=&quot;button is-info&quot;
-    data-kleber-click=&quot;is-large&quot;&gt;
-        &lt;span class=&quot;icon is-big&quot;&gt;&lt;i class=&quot;fa fa-bolt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-        Click to change the size!
-&lt;/button&gt;
+    &lt;button class=&quot;button is-info&quot;
+        data-kleber-click=&quot;is-large&quot;&gt;
+            &lt;span class=&quot;icon is-big&quot;&gt;&lt;i class=&quot;fa fa-bolt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+            Click to change the size!
+    &lt;/button&gt;
                     </code>
                 </pre>
             </div>
@@ -93,18 +93,68 @@
             <div class="column is-two-thirds centerbox">
                 <pre>
                     <code class="html">
-&lt;button class=&quot;button is-primary&quot;
-    data-kleber-target=&quot;#bell-button-icon&quot;
-    data-kleber-click=&quot;fa-bell,fa-heart&quot;&gt;
-        &lt;span class=&quot;icon is-big&quot;&gt;&lt;i id=&quot;bell-button-icon&quot; class=&quot;fa fa-bell&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-        Click to change the icon!
-&lt;/button&gt;
+    &lt;button class=&quot;button is-primary&quot;
+        data-kleber-target=&quot;#bell-button-icon&quot;
+        data-kleber-click=&quot;fa-bell,fa-heart&quot;&gt;
+            &lt;span class=&quot;icon is-big&quot;&gt;&lt;i id=&quot;bell-button-icon&quot; class=&quot;fa fa-bell&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+            Click to change the icon!
+    &lt;/button&gt;
                     </code>
                 </pre>
             </div>
         </div>
     </div>
 </section>
+
+<section id="scroll" style="padding-top: 50px;">
+        <div class="container">
+            <h1 class="title">Scrolls</h1>
+            <h2 class="subtitle">Add classes while scrolling!</h2>
+
+            <div class="columns">
+                <div class="column is-one-third centerbox">
+                    <button class="button is-danger" data-kleber-scroll="is-large" data-kleber-scroll-target="#scroll">
+                        <span class="icon is-big"><i class="fa fa-desktop"></i></span>&nbsp;
+                        Will grow when you scroll past "Scrolls" title
+                    </button>
+                </div>
+                <div class="column is-two-thirds centerbox">
+                    <pre>
+                        <code class="html">
+    &lt;button class=&quot;button is-danger&quot;
+        data-kleber-scroll=&quot;is-large&quot;
+        data-kleber-scroll-target=&quot;#scroll&quot;
+            &lt;span class=&quot;icon is-big&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+            Will grow when you scroll past "Scrolls" title
+    &lt;/button&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-one-third centerbox">
+                    <button class="button is-warning" data-kleber-scroll="is-large" data-kleber-scroll-target="#scroll" data-kleber-scroll-offset="-250">
+                        <span class="icon is-big"><i class="fa fa-heart"></i></span>&nbsp;
+                        Same as above, with offset
+                    </button>
+                </div>
+                <div class="column is-two-thirds centerbox">
+                    <pre>
+                        <code class="html">
+    &lt;button class=&quot;button is-warning&quot;
+        data-kleber-scroll=&quot;is-large&quot;
+        data-kleber-scroll-target=&quot;#scroll&quot;
+        data-kleber-scroll-offset=&quot;-250&quot;
+            &lt;span class=&quot;icon is-big&quot;&gt;&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+            Same as above, with offset
+    &lt;/button&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <script src="dist/kleber.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
