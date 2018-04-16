@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css" />
 
-<nav class="navbar is-primary" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-threshold="300">
+<nav class="navbar is-primary" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-target="#content">
     <div class="navbar-brand">
         <a class="navbar-item">
             <img src="https://bulma.io/images/bulma-logo-white.png" width="112" height="28" />
@@ -23,20 +25,49 @@
 
     <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="">
+            <a class="navbar-item" href="#home">
                 Home
+            </a>
+            <a class="navbar-item" href="#click">
+                Click
+            </a>
+            <a class="navbar-item" href="#scroll">
+                Scroll
             </a>
         </div>
     </div>
 </nav>
 
-<section id="content" class="section" style="background: red; height:5000px;">
+<section id="home" class="section">
     <div class="container">
-        <button class="button is-primary" data-kleber-click="is-rounded">Test</button>
-        <button class="button is-primary" data-kleber-target="#mainnav" data-kleber-click="is-primary,is-dark">Different target</button>
+    </div>
+</section>
 
-
+<section id="click">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <button class="button is-primary" data-kleber-target="#bell-button-icon" data-kleber-click="fa-bell,fa-heart">
+                    <span class="icon is-big"><i id="bell-button-icon" class="fa fa-bell"></i></span>&nbsp;
+                    Click to change the icon
+                </button>
+            </div>
+            <div class="column">
+                <pre>
+                    <code class="html">
+&lt;button class=&quot;button is-primary&quot;
+    data-kleber-target=&quot;#bell-button-icon&quot;
+    data-kleber-click=&quot;fa-bell,fa-heart&quot;&gt;
+        &lt;span class=&quot;icon is-big&quot;&gt;&lt;i id=&quot;bell-button-icon&quot; class=&quot;fa fa-bell&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        Click to change the icon
+&lt;/button&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
     </div>
 </section>
 
 <script src="dist/kleber.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
