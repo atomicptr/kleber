@@ -8,12 +8,26 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css" />
 
-<nav class="navbar is-primary" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-target="#content">
+<style>
+    .centerbox {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .centerbox pre {
+        width: 100%;
+        background: transparent;
+    }
+</style>
+
+<nav class="navbar" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-target="#home">
     <div class="navbar-brand">
-        <a class="navbar-item">
-            <img src="https://bulma.io/images/bulma-logo-white.png" width="112" height="28" />
+        <a class="navbar-item" href="#home">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
         </a>
 
         <a role="button" class="navbar-burger" data-kleber-click="is-active">
@@ -25,9 +39,6 @@
 
     <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="#home">
-                Home
-            </a>
             <a class="navbar-item" href="#click">
                 Click
             </a>
@@ -38,28 +49,55 @@
     </div>
 </nav>
 
-<section id="home" class="section">
-    <div class="container">
+<section id="home" class="hero is-medium is-primary" style="margin-bottom: 10px;">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Kleber</h1>
+            <h2 class="subtitle">Just glue things to classes.</h2>
+        </div>
     </div>
 </section>
 
-<section id="click">
+<section id="click" style="padding-top: 50px;">
     <div class="container">
+        <h1 class="title">Clicks</h1>
+        <h2 class="subtitle">Add classes to things with clicks!</h2>
+
         <div class="columns">
-            <div class="column">
-                <button class="button is-primary" data-kleber-target="#bell-button-icon" data-kleber-click="fa-bell,fa-heart">
-                    <span class="icon is-big"><i id="bell-button-icon" class="fa fa-bell"></i></span>&nbsp;
-                    Click to change the icon
+            <div class="column is-one-third centerbox">
+                <button class="button is-info" data-kleber-click="is-large">
+                    <span class="icon is-big"><i class="fa fa-bolt"></i></span>&nbsp;
+                    Click to change the size!
                 </button>
             </div>
-            <div class="column">
+            <div class="column is-two-thirds centerbox">
+                <pre>
+                    <code class="html">
+&lt;button class=&quot;button is-info&quot;
+    data-kleber-click=&quot;is-large&quot;&gt;
+        &lt;span class=&quot;icon is-big&quot;&gt;&lt;i class=&quot;fa fa-bolt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        Click to change the size!
+&lt;/button&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column is-one-third centerbox">
+                <button class="button is-primary" data-kleber-target="#bell-button-icon" data-kleber-click="fa-bell,fa-heart">
+                    <span class="icon is-big"><i id="bell-button-icon" class="fa fa-bell"></i></span>&nbsp;
+                    Click to change the icon!
+                </button>
+            </div>
+            <div class="column is-two-thirds centerbox">
                 <pre>
                     <code class="html">
 &lt;button class=&quot;button is-primary&quot;
     data-kleber-target=&quot;#bell-button-icon&quot;
     data-kleber-click=&quot;fa-bell,fa-heart&quot;&gt;
         &lt;span class=&quot;icon is-big&quot;&gt;&lt;i id=&quot;bell-button-icon&quot; class=&quot;fa fa-bell&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-        Click to change the icon
+        Click to change the icon!
 &lt;/button&gt;
                     </code>
                 </pre>
