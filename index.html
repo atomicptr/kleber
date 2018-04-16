@@ -27,6 +27,25 @@
         font-size: 48px;
         color: black;
     }
+
+    .github .icon {
+        transition: transform 0.5s ease;
+        transform: rotateZ(0deg);
+    }
+
+    .kinda-hidden {
+        transform: scale(0.01);
+        transition: transform 0.5s ease;
+        transition-delay: 0.25s;
+    }
+
+    .kinda-hidden.unhide {
+        transform: scale(1);
+    }
+
+    .spin {
+        transform: rotateZ(360deg) !important;
+    }
 </style>
 
 <nav class="navbar" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-target="#home">
@@ -158,6 +177,26 @@
                 </pre>
             </div>
         </div>
+
+        <div class="columns">
+            <div class="column is-one-third centerbox">
+                <button class="button is-success kinda-hidden" data-kleber-enters-viewport="unhide">
+                    <span class="icon is-big"><i class="fa fa-eye"></i></span>&nbsp;
+                    Appears after it enters the viewport
+                </button>
+            </div>
+            <div class="column is-two-thirds centerbox">
+                <pre>
+                    <code class="html">
+&lt;button class=&quot;button is-success kinda-hidden&quot;
+    data-kleber-enters-viewport=&quot;unhide&quot;
+        &lt;span class=&quot;icon is-big&quot;&gt;&lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        Appears after it enters the viewport
+&lt;/button&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -165,7 +204,9 @@
     <div class="container">
         <div class="content has-text-centered">
             <p>
-                <a href="https://github.com/atomicptr/kleber" class="github" target="_blank"><span class="icon is-large"><i class="fa fa-github"></i></span></a>
+                <a href="https://github.com/atomicptr/kleber" class="github" target="_blank">
+                    <span data-kleber-enters-viewport="spin" class="icon is-large"><i class="fa fa-github"></i></span>
+                </a>
             </p>
         </div>
     </div>

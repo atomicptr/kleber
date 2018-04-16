@@ -33,6 +33,15 @@ window.addEventListener("load", event => {
         }
     });
 
+    // register enters viewport handlers
+    kleberAll("[data-kleber-enters-viewport]", (target, source) => {
+        if(!window.__kleberScrollEntersViewportElements) {
+            window.__kleberScrollEntersViewportElements = [];
+        }
+
+        window.__kleberScrollEntersViewportElements.push([target, source]);
+    });
+
     function checkScrollEvents() {
         for(let [target, source] of window.__kleberScrollElements) {
             const scrollBarTop = window.pageYOffset;
@@ -46,6 +55,26 @@ window.addEventListener("load", event => {
             const targetOffset = targetElement.offsetTop;
 
             if(scrollBarTop >= (targetOffset + scrollOffset)) {
+                classes.forEach(className => target.classList.add(className));
+            } else {
+                classes.forEach(className => target.classList.remove(className));
+            }
+        }
+
+        const rectIntersect = (r1, r2) => !(
+            r2.left > r1.right ||
+            r2.right < r1.left ||
+            r2.top > r1.bottom ||
+            r2.bottom < r1.top
+        );
+
+        for(let [target, source] of window.__kleberScrollEntersViewportElements) {
+            const screenRect = {top: 0, left: 0, right: window.innerWidth, bottom: window.innerHeight};
+            const elementRect = source.getBoundingClientRect();
+
+            const classes = source.dataset.kleberEntersViewport.split(",");
+
+            if(rectIntersect(screenRect, elementRect)) {
                 classes.forEach(className => target.classList.add(className));
             } else {
                 classes.forEach(className => target.classList.remove(className));
