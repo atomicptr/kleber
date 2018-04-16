@@ -6,6 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<link rel="shortcut icon" href="misc/icon.png" />
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css" />
@@ -46,32 +48,38 @@
     .spin {
         transform: rotateZ(360deg) !important;
     }
+
+    .nav-wrapper {
+        height: 52px;
+    }
 </style>
 
-<nav class="navbar" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-target="#home">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="#home">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-        </a>
-
-        <a role="button" class="navbar-burger" data-kleber-click="is-active">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-    </div>
-
-    <div class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item" href="#click">
-                Click
+<div class="nav-wrapper">
+    <nav class="navbar" id="mainnav" role="navigation" data-kleber-scroll="is-fixed-top" data-kleber-scroll-target="#click">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#home">
+                <img src="misc/icon.png" height="32" /> <span>&nbsp;Kleber</span>
             </a>
-            <a class="navbar-item" href="#scroll">
-                Scroll
+
+            <a role="button" class="navbar-burger" data-kleber-target=".navbar-menu" data-kleber-click="is-active">
+                <span></span>
+                <span></span>
+                <span></span>
             </a>
         </div>
-    </div>
-</nav>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#click" data-kleber-target=".navbar-menu" data-kleber-click="is-active">
+                    Click
+                </a>
+                <a class="navbar-item" href="#scroll" data-kleber-target=".navbar-menu" data-kleber-click="is-active">
+                    Scroll
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <section id="home" class="hero is-medium is-primary" style="margin-bottom: 10px;">
     <div class="hero-body">
