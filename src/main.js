@@ -57,7 +57,9 @@ window.addEventListener("load", event => {
             if(scrollBarTop >= (targetOffset + scrollOffset)) {
                 classes.forEach(className => target.classList.add(className));
             } else {
-                classes.forEach(className => target.classList.remove(className));
+                if(source.dataset.kleberStay !== "true") {
+                    classes.forEach(className => target.classList.remove(className));
+                }
             }
         }
 
@@ -77,7 +79,9 @@ window.addEventListener("load", event => {
             if(rectIntersect(screenRect, elementRect)) {
                 classes.forEach(className => target.classList.add(className));
             } else {
-                classes.forEach(className => target.classList.remove(className));
+                if(source.dataset.kleberStay !== "true") {
+                    classes.forEach(className => target.classList.remove(className));
+                }
             }
         }
     }
