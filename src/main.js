@@ -3,7 +3,7 @@
 function kleberAll(query, func) {
     document.querySelectorAll(query).forEach(elem => {
         if(elem.dataset.kleberTarget) {
-            return func(document.querySelector(elem.dataset.kleberTarget), elem);
+            return func(document.querySelectorAll(elem.dataset.kleberTarget), elem);
         }
 
         func(elem, elem);
@@ -13,10 +13,10 @@ function kleberAll(query, func) {
 window.addEventListener("load", event => {
 
     // register click handlers
-    kleberAll("[data-kleber-click]", (target, source) => {
+    kleberAll("[data-kleber-click]", (targets, source) => {
         source.addEventListener("click", event => {
             const classes = source.dataset.kleberClick.split(",");
-            classes.forEach(className => target.classList.toggle(className));
+            classes.forEach(className => targets.forEach(target => target.classList.toggle(className)));
         });
     });
 
@@ -43,7 +43,7 @@ window.addEventListener("load", event => {
     });
 
     function checkScrollEvents() {
-        for(let [target, source] of window.__kleberScrollElements) {
+        for(let [targets, source] of window.__kleberScrollElements) {
             const scrollBarTop = window.pageYOffset;
 
             let targetElement = document.querySelector(source.dataset.kleberScrollTarget);
@@ -55,10 +55,10 @@ window.addEventListener("load", event => {
             const targetOffset = targetElement.offsetTop;
 
             if(scrollBarTop >= (targetOffset + scrollOffset)) {
-                classes.forEach(className => target.classList.add(className));
+                classes.forEach(className => targets.forEach(target => target.classList.add(className)));
             } else {
                 if(source.dataset.kleberStay !== "true") {
-                    classes.forEach(className => target.classList.remove(className));
+                    classes.forEach(className => targets.forEach(target => target.classList.remove(className)));
                 }
             }
         }
@@ -77,10 +77,10 @@ window.addEventListener("load", event => {
             const classes = source.dataset.kleberEntersViewport.split(",");
 
             if(rectIntersect(screenRect, elementRect)) {
-                classes.forEach(className => target.classList.add(className));
+                classes.forEach(className => targets.forEach(target => target.classList.add(className)));
             } else {
                 if(source.dataset.kleberStay !== "true") {
-                    classes.forEach(className => target.classList.remove(className));
+                    classes.forEach(className => targets.forEach(target => target.classList.remove(className)));
                 }
             }
         }
