@@ -6,7 +6,7 @@ function kleberAll(query, func) {
             return func(document.querySelectorAll(elem.dataset.kleberTarget), elem);
         }
 
-        func(elem, elem);
+        func([elem], elem);
     });
 }
 
@@ -21,25 +21,25 @@ window.addEventListener("load", event => {
     });
 
     // register scroll handlers
-    kleberAll("[data-kleber-scroll]", (target, source) => {
+    kleberAll("[data-kleber-scroll]", (targets, source) => {
         if(!window.__kleberScrollElements) {
             window.__kleberScrollElements = [];
         }
 
         if(source.dataset.kleberScrollTarget) {
-            window.__kleberScrollElements.push([target, source]);
+            window.__kleberScrollElements.push([targets, source]);
         } else {
             console.warn("Kleber: Scroll defined without scroll target, ignoring.", source);
         }
     });
 
     // register enters viewport handlers
-    kleberAll("[data-kleber-enters-viewport]", (target, source) => {
+    kleberAll("[data-kleber-enters-viewport]", (targets, source) => {
         if(!window.__kleberScrollEntersViewportElements) {
             window.__kleberScrollEntersViewportElements = [];
         }
 
-        window.__kleberScrollEntersViewportElements.push([target, source]);
+        window.__kleberScrollEntersViewportElements.push([targets, source]);
     });
 
     function checkScrollEvents() {
