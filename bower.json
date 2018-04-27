@@ -1,0 +1,17 @@
+{
+  "name": "kleber",
+  "description": "Just glue things to classes",
+  "main": "src/kleber.js",
+  "authors": [
+    "Christopher Kaster <me@atomicptr.de>"
+  ],
+  "license": "MIT",
+  "homepage": "http://kleber.atomicptr.de",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
