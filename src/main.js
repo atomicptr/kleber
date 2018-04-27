@@ -43,44 +43,48 @@ window.addEventListener("load", event => {
     });
 
     function checkScrollEvents() {
-        for(let [targets, source] of window.__kleberScrollElements) {
-            const scrollBarTop = window.pageYOffset;
+        if(window.__kleberScrollElements) {
+            for(let [targets, source] of window.__kleberScrollElements) {
+                const scrollBarTop = window.pageYOffset;
 
-            let targetElement = document.querySelector(source.dataset.kleberScrollTarget);
-            const classes = source.dataset.kleberScroll.split(",");
+                let targetElement = document.querySelector(source.dataset.kleberScrollTarget);
+                const classes = source.dataset.kleberScroll.split(",");
 
-            const scrollOffset = source.dataset.kleberScrollOffset ?
-                Number(source.dataset.kleberScrollOffset) : 0;
+                const scrollOffset = source.dataset.kleberScrollOffset ?
+                    Number(source.dataset.kleberScrollOffset) : 0;
 
-            const targetOffset = targetElement.offsetTop;
+                const targetOffset = targetElement.offsetTop;
 
-            if(scrollBarTop >= (targetOffset + scrollOffset)) {
-                classes.forEach(className => targets.forEach(target => target.classList.add(className)));
-            } else {
-                if(source.dataset.kleberStay !== "true") {
-                    classes.forEach(className => targets.forEach(target => target.classList.remove(className)));
+                if(scrollBarTop >= (targetOffset + scrollOffset)) {
+                    classes.forEach(className => targets.forEach(target => target.classList.add(className)));
+                } else {
+                    if(source.dataset.kleberStay !== "true") {
+                        classes.forEach(className => targets.forEach(target => target.classList.remove(className)));
+                    }
                 }
             }
         }
 
-        const rectIntersect = (r1, r2) => !(
-            r2.left > r1.right ||
-            r2.right < r1.left ||
-            r2.top > r1.bottom ||
-            r2.bottom < r1.top
-        );
+        if(window.__kleberScrollEntersViewportElements) {
+            const rectIntersect = (r1, r2) => !(
+                r2.left > r1.right ||
+                r2.right < r1.left ||
+                r2.top > r1.bottom ||
+                r2.bottom < r1.top
+            );
 
-        for(let [targets, source] of window.__kleberScrollEntersViewportElements) {
-            const screenRect = {top: 0, left: 0, right: window.innerWidth, bottom: window.innerHeight};
-            const elementRect = source.getBoundingClientRect();
+            for(let [targets, source] of window.__kleberScrollEntersViewportElements) {
+                const screenRect = {top: 0, left: 0, right: window.innerWidth, bottom: window.innerHeight};
+                const elementRect = source.getBoundingClientRect();
 
-            const classes = source.dataset.kleberEntersViewport.split(",");
+                const classes = source.dataset.kleberEntersViewport.split(",");
 
-            if(rectIntersect(screenRect, elementRect)) {
-                classes.forEach(className => targets.forEach(target => target.classList.add(className)));
-            } else {
-                if(source.dataset.kleberStay !== "true") {
-                    classes.forEach(className => targets.forEach(target => target.classList.remove(className)));
+                if(rectIntersect(screenRect, elementRect)) {
+                    classes.forEach(className => targets.forEach(target => target.classList.add(className)));
+                } else {
+                    if(source.dataset.kleberStay !== "true") {
+                        classes.forEach(className => targets.forEach(target => target.classList.remove(className)));
+                    }
                 }
             }
         }
