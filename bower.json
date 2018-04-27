@@ -1,7 +1,7 @@
 {
   "name": "kleber",
   "description": "Just glue things to classes",
-  "main": "src/kleber.js",
+  "main": "dist/kleber.min.js",
   "authors": [
     "Christopher Kaster <me@atomicptr.de>"
   ],
