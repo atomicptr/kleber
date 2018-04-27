@@ -70,7 +70,7 @@ window.addEventListener("load", event => {
             r2.bottom < r1.top
         );
 
-        for(let [target, source] of window.__kleberScrollEntersViewportElements) {
+        for(let [targets, source] of window.__kleberScrollEntersViewportElements) {
             const screenRect = {top: 0, left: 0, right: window.innerWidth, bottom: window.innerHeight};
             const elementRect = source.getBoundingClientRect();
 
