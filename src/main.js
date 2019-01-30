@@ -48,6 +48,12 @@ window.addEventListener("load", event => {
                 const scrollBarTop = window.pageYOffset;
 
                 let targetElement = document.querySelector(source.dataset.kleberScrollTarget);
+
+                if(!targetElement) {
+                    // if the target element doesn't exist, stop here
+                    return;
+                }
+
                 const classes = source.dataset.kleberScroll.split(",");
 
                 const scrollOffset = source.dataset.kleberScrollOffset ?

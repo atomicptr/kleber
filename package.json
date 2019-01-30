@@ -1,6 +1,6 @@
 {
   "name": "kleber",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Just glue things to classes",
   "main": "src/kleber.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
-    "webpack": "^4.5.0"
+    "webpack": "^4.5.0",
+    "webpack-cli": "^3.2.1"
   }
 }
