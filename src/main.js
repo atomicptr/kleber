@@ -51,7 +51,7 @@ window.addEventListener("load", event => {
 
                 if(!targetElement) {
                     // if the target element doesn't exist, stop here
-                    return;
+                    continue;
                 }
 
                 const classes = source.dataset.kleberScroll.split(",");
